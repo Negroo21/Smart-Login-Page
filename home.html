@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <h1>
+        <a class="navbar-brand text-white">Smart Login System</a>
+      </h1>
+      <div class="d-flex m-3">
+        <button onclick="logout()" class="btn rounded text-white text-bg-danger ">Log out</button>
+      </div>
+    </div>
+  </nav>
+  <div class="content">
+    <h1 class="welcom text-white text-center" id="greeting"></h1>
+  </div>
+
+<script>
+  window.onload = function() {
+  const user =JSON.parse(localStorage.getItem('activeUser'));
+  if (user){
+    document.getElementById('greeting').innerText = `Welcom : ${user.username} <3`;
+  }else{
+    window.location.href = './index.html'
+  }
+
+};
+</script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
